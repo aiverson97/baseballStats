@@ -12,8 +12,8 @@ router.get('/', function (req, res) {
         teams: {
             allTeams: "use /teams to view all teams' data with an entry per-team per-year",
             specificTeam: "use /teams/{teamID} to view one teams' data with an entry per-team per-year",
-            specificYear: "use /teams/byYear/{yearID} to view all teams' data in a specific year",
-            examples: "/teams/SDN -> see data for the Padres or /teams/2020 -> see data for all teams in 2020",
+            specificYear: "use /teams/byyear/{yearID} to view all teams' data in a specific year",
+            examples: "/teams/SDN -> see data for the Padres or /teams/byyear/2020 -> see data for all teams in 2020",
             byName: "use /teams/byName/{nameContains} to view all teams' data that contain your name query",
             nameExample: "/teams/byname/Boston -> data for 'Boston Red Stockings', 'Boston Red Caps', 'Boston Beaneaters', etc all the way through 'Boston Red Sox' because they all contain 'Boston'",
             exContinued: "/teams/byname/Red Sox -> data only begins from 1908 because that's when the 'Boston Red Sox' were started",
