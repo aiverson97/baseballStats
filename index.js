@@ -35,7 +35,7 @@ if(!db) {
 var port = process.env.PORT || 8080;
 
 // Send message for default URL
-app.get('/', (req, res) => res.send('Hello World with Express'));
+app.get('/', (req, res) => res.send("Hello World with Express<br>add '/api' to the url to see request options"));
 
 // Use API routes in the app
 app.use('/api', apiRoutes);
