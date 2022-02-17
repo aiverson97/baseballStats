@@ -33,6 +33,19 @@ exports.view = function(req, res) {
     });
 };
 
+// Handle view team by franchise info
+exports.byFranchise = function(req, res) {
+    Team.find({franchID: req.params.franchiseID.toUpperCase()}, function(err, team) {
+        if (err)
+            res.send(err);
+
+        res.json({
+            message: 'Team details loading...',
+            data: team
+        });
+    });
+};
+
 // Handle view teams by year info
 exports.byYear = function(req, res) {
     Team.find({yearID: parseInt(req.params.yearID)}, function(err, teams) {
@@ -48,7 +61,10 @@ exports.byYear = function(req, res) {
 
 // Handle view teams by name info
 exports.byName = function(req, res) {
-    Team.find({name: {$regex:req.params.nameContains}}, function(err, teams) {
+    //Fixing query to have capital first letters as the MongoDB would expect
+    var fixedQuery = req.params.nameContains.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" ");
+
+    Team.find({name: {$regex:fixedQuery}}, function(err, teams) {
         if (err)
             res.send(err);
 

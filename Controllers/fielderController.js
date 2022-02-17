@@ -35,7 +35,7 @@ exports.view = function(req, res) {
 
 // Handle view fielder by player info
 exports.byPlayer = function(req, res) {
-    Fielder.find({playerID: req.params.playerID}, function(err, fielder) {
+    Fielder.find({playerID: req.params.playerID.toLowerCase()}, function(err, fielder) {
         if (err)
             res.send(err);
 
@@ -48,7 +48,7 @@ exports.byPlayer = function(req, res) {
 
 // Handle view fielders by player plus year info
 exports.byPlayerandYear = function(req, res) {
-    Fielder.find({playerID: req.params.playerID, yearID: parseInt(req.params.yearID)}, function(err, fielders) {
+    Fielder.find({playerID: req.params.playerID.toLowerCase(), yearID: parseInt(req.params.yearID)}, function(err, fielders) {
         if (err)
             res.send(err);
 

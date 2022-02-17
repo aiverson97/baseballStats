@@ -22,7 +22,7 @@ exports.index = function (req, res) {
 
 // Handle view player info
 exports.view = function(req, res) {
-    Player.find({playerID: req.params.playerID}, function(err, player) {
+    Player.find({playerID: req.params.playerID.toLowerCase()}, function(err, player) {
         if (err)
             res.send(err);
 

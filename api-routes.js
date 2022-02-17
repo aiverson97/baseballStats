@@ -72,6 +72,9 @@ router.route('/teams')
 router.route('/teams/:teamID')
     .get(teamController.view);
 
+router.route('/teams/byfranchise/:franchiseID')
+    .get(teamController.byFranchise);
+
 router.route('/teams/byyear/:yearID')
     .get(teamController.byYear);
 

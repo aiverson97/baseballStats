@@ -19,7 +19,14 @@ in this application.
 **/teams** - view all teams' data with an entry per-team per-season
 
 **/teams/{teamID}** - view one teams' data with an entry per-season<br>
-*EX* - "/teams/SDN" -> see all Padres data
+*EX* - "/teams/SFN" -> see all SF Giants data (1958-2020)
+
+**/teams/byfranchise/{franchiseID}** - view one franchise's data with an entry per-season<br>
+*EX* - "/teams/byfranchise/SFG" -> see all Giants franchise data including New York Gothams
+(1883-1884), New York Giants (1885-1957), & San Francisco Giants (1958-2020)
+*NOTE* - frachiseID typically corresponds to the 3 letters you'll see on a sports broadcast
+i.e. "OAK" -> Athletics, "SDP" -> Padres, "NYY" -> Yankees etc & this is a good way of finding
+a specific iteration of that franchise's teamID
 
 **/teams/byYear/{yearID}** - view all teams' data in a specific season<br>
 *EX* - "/teams/byyear/2020" -> see data for all teams in 2020
@@ -27,7 +34,7 @@ in this application.
 **/teams/byName/{nameContains}** - view all teams' data that contain your name query<br>
 *EX1* - "/teams/byname/Boston" -> data for 'Boston Red Stockings', 'Boston Red Caps', 'Boston Beaneaters', etc all the way through 'Boston Red Sox' because they all contain 'Boston'<br>
 *EX2* - "/teams/byname/Red Sox" -> data only begins from 1908 because that's when the 'Boston Red Sox' were started<br>
-*NOTE* - the nameContains field is case sensitive so /teams/byname/red sox -> null, but /teams/byname/Red Sox -> data 1908-2020 *(this is a little wonky so it's on my list of fixes)*
+*NOTE* - the nameContains field is no longer case sensitive so "/teams/byname/red sox", "/teams/byname/Red Sox", & "/teams/byname/ReD sOx" all return the same data
 
 ### Player Bios
 **/players** - view all players' biographical data with one entry for each player
@@ -95,7 +102,7 @@ playerIDs are made up of:<br>
 **tatisfe02** - playerID for Fernando Tatis Jr<br>**tatisfe01** - playerID of Fernando Tatis Sr<br>
 *The difference between junior & senior is the 2-digit number at the end*<br>
 
-**_NOTE_** - all chars in a playerID are lowercase *(looking to fix this amongst other case-sensitivity issues)*
+**_NOTE_** - playerID is no longer case sensitive so "tatisfe02", "TATISFE02", & "TaTiSfE02" all return the same data
 
 ## Building the App on Your Machine
 ### Database

@@ -35,7 +35,7 @@ exports.view = function(req, res) {
 
 // Handle view pitcher by player info
 exports.byPlayer = function(req, res) {
-    Pitcher.find({playerID: req.params.playerID}, function(err, pitcher) {
+    Pitcher.find({playerID: req.params.playerID.toLowerCase()}, function(err, pitcher) {
         if (err)
             res.send(err);
 
@@ -48,7 +48,7 @@ exports.byPlayer = function(req, res) {
 
 // Handle view pitchers by player plus year info
 exports.byPlayerandYear = function(req, res) {
-    Pitcher.find({playerID: req.params.playerID, yearID: parseInt(req.params.yearID)}, function(err, pitchers) {
+    Pitcher.find({playerID: req.params.playerID.toLowerCase(), yearID: parseInt(req.params.yearID)}, function(err, pitchers) {
         if (err)
             res.send(err);
 
