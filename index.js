@@ -8,6 +8,7 @@ let express = require('express');
 let bodyParser = require('body-parser');
 // Import Mongoose for modeling Mongodb
 let mongoose = require('mongoose');
+global.ObjectId = mongoose.Types.ObjectId;
 // Initialize the app
 let app = express();
 app.set('json spaces', 2);

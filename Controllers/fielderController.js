@@ -22,15 +22,19 @@ exports.index = function (req, res) {
 
 // Handle view fielder info
 exports.view = function(req, res) {
-    Fielder.findById(req.params.fielder_id, function (err, fielder) {
-        if (err)
-            res.send(err);
+    if(!ObjectId.isValid(req.params.fielder_id)) {
+        res.send("Error: Please request with a valid Mongoose ObjectId or use the /fielders/byplayer/{playerId} if you're trying to use the CBB playerID");
+    } else {
+        Fielder.findById(req.params.fielder_id, function (err, fielder) {
+            if (err)
+                res.send(err);
 
-        res.json({
-            message: 'Fielder details loading...',
-            data: fielder
+            res.json({
+                message: 'Fielder details loading...',
+                data: fielder
+            });
         });
-    });
+    }
 };
 
 // Handle view fielder by player info

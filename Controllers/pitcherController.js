@@ -22,15 +22,19 @@ exports.index = function (req, res) {
 
 // Handle view pitcher info
 exports.view = function(req, res) {
-    Pitcher.findById(req.params.pitcher_id, function (err, pitcher) {
-        if (err)
-            res.send(err);
+    if(!ObjectId.isValid(req.params.pitcher_id)) {
+        res.send("Error: Please request with a valid Mongoose ObjectId or use the /pitchers/byplayer/{playerId} if you're trying to use the CBB playerID");
+    } else {
+        Pitcher.findById(req.params.pitcher_id, function (err, pitcher) {
+            if (err)
+                res.send(err);
 
-        res.json({
-            message: 'Pitcher details loading...',
-            data: pitcher
+            res.json({
+                message: 'Pitcher details loading...',
+                data: pitcher
+            });
         });
-    });
+    }
 };
 
 // Handle view pitcher by player info
