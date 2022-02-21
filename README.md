@@ -2,11 +2,8 @@
 This is a practice exercise for me in creating a REST api with MongoDB, Express
 & Node.js, eventually planning to extend with a React.js front-end. Below I have
 instructions for building the database, running the Node server, and the different
-requests you can make. I also plan to publish this & make it accessible over the
-internet once I decide on a good free/cheap hosting option but as of now it's for
-local use *(which isn't very practical, I know, but this is just for my own practice)*
-*((as of now you're probably better off using [baseball-reference](https://www.baseball-reference.com/)
-anyways))*
+requests you can make. The api is accessible over the web here:<br>
+[https://baseballstats-api.herokuapp.com/api/](https://baseballstats-api.herokuapp.com/api/)
 
 ## Request Options
 Use **/api** before all of these endpoints to request JSON from the database. Anything
@@ -105,6 +102,7 @@ playerIDs are made up of:<br>
 **_NOTE_** - playerID is no longer case sensitive so "tatisfe02", "TATISFE02", & "TaTiSfE02" all return the same data
 
 ## Building the App on Your Machine
+*NOTE* - Building the app on your local machine is no longer very necessary as I've made the api accessible over the internet here:<br>[https://baseballstats-api.herokuapp.com/api/](https://baseballstats-api.herokuapp.com/api/)
 ### Database
 
 #### Source
